@@ -9,7 +9,7 @@ dotenv.config()
 
 // Coexion a la base de datos
 mongoose.Promise = global.Promise
-const dbUrl = "mongodb://localhost:27017/cursos_udemy"
+const dbUrl = "mongodb://127.0.0.1:27017/cursos_udemy"
 mongoose.connect(
     dbUrl, {
         useNewUrlParser: true,
@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api/', router);
+app.use('/api', router);
 
 app.set('port', process.env.PORT || 3000);
 
