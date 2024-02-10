@@ -6,6 +6,15 @@ export default {
     register: async(req, res) => {
 
         try {
+            const VALID_USER = await models.User.findOne({ email: req.body.email});
+
+            if(VALID_USER){
+                res.status(200).json({
+                    message: 403,
+                    message_text: "El usuario ya existe"
+                });
+
+            }
             //ENCRIPTACION DE CONTRASEÑA
             req.body.password = await bycrpt.hash(req.body.password, 10);
             const User = await models.User.create(req.body);
