@@ -47,11 +47,11 @@ const UserSchema = new Schema({
         maxlength:30,
         required:false
     },
-    is_instructor: {
-        type: Number,
-        required:false,
-        default: null
-    },// 1 es instructor
+    // is_instructor: {
+    //     type: Number,
+    //     required:false,
+    //     default: null
+    // },// 1 es instructor
     profession: {
         type: String,
         maxlength:250,
