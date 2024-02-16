@@ -201,12 +201,27 @@ export default {
         try {
         
             var search = req.query.search;
-            let USERS = await models.User.find({
-                $or :[
+            var rol = req.query.rol;
+            var filter = [
+                {'name': new RegExp('', 'i')},
+            ];
+            if (search) {
+                filter = [
                     {'name': new RegExp(search, 'i')},
                     {'surname': new RegExp(search, 'i')},
-                    {'email': new RegExp(search, 'i')},                    
-                ],
+                    {'email': new RegExp(search, 'i')},  
+                ];
+            }
+            if (rol) {
+                if(!search){
+                    filter = [];
+                }
+                filter.push({
+                    'rol': rol
+                });
+            }
+            let USERS = await models.User.find({
+                $or : filter,
                 "rol": { $in: ["admin","instructor"]}
             }).sort({'createdAt': -1});
              
