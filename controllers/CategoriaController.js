@@ -25,7 +25,7 @@ export default {
 
             var NewCategorie = await models.Categoria.create(req.body)
 
-            res.estatus(200).json({
+            res.status(200).json({
                 categoria: resource.Categoria.api_resource_categorie(NewCategorie) 
             });
 
@@ -84,7 +84,7 @@ export default {
 
             var NEditCategorie = await models.Categoria.findById({_id: EditCategorie._id});
 
-            res.estatus(200).json({
+            res.status(200).json({
                 categoria: resource.Categoria.api_resource_categorie(NEditCategorie) 
             });
             
