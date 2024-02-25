@@ -2,7 +2,7 @@ import mongoose, {Schema} from "mongoose";
 
 const AlarmaSchema = new Schema({
     numero: {
-        type: Number,
+        type: String,
         required: true
     },
     descripcion: {
