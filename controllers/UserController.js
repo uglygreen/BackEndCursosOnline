@@ -126,6 +126,7 @@ export default {
     },
     register_admin: async(req, res) => {
         try {
+            //console.log(req.body); 
             const VALID_USER = await models.User.findOne({ email: req.body.email});
 
             if(VALID_USER){
@@ -145,7 +146,7 @@ export default {
                 var avatar_name = name[2];
                 req.body.avatar = avatar_name;    
             }
-            //console.log(req.body); 
+            console.log(req.body); 
             const User = await models.User.create(req.body);
 
            

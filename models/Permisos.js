@@ -1,7 +1,4 @@
 import mongoose, {Schema} from "mongoose";
-import Alarma from "./Alarma";
-import Ubicacion from "./Ubicacion";
-import User from "./User";
 
 const PermisoSchema = new Schema({
     folio:  {
@@ -12,17 +9,18 @@ const PermisoSchema = new Schema({
     estatus:  {
         type: String,
         maxlength: 250,
-        required: true
+        default: 'pendiente'
     },
     fecha_creacion: {
         type: Date,
+        required: false
     },
     alarma:  {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Alarma',
         required: true
     },
-    WTG:{
+    wtg:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Ubicacion',
         required: true
@@ -31,7 +29,7 @@ const PermisoSchema = new Schema({
         type: String,
         maxlength: 250,
     },
-    GM_VTS: {
+    gm_vts: {
         type: String,
     },
     solicitante: {
