@@ -176,10 +176,10 @@ export default {
             }
             //ENCRIPTACION DE CONTRASEÑA
             
-            //console.log("Files: ",req.files.avatar)
+            // console.log("Files: ",req.files.avatar)
             if(req.files && req.files.avatar){
                 var img_path = req.files.avatar.path;
-                var name = img_path.split("/");
+                var name = img_path.split("\\");
                 var avatar_name = name[2];
                 req.body.avatar = avatar_name;    
                // console.log(req.body)

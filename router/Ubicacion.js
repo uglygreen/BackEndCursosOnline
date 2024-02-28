@@ -9,6 +9,6 @@ const router = routerx();
 router.post("/register",[auth.verifyAdmin], UbicacionController.register);
 router.post("/update",[auth.verifyAdmin], UbicacionController.update);
 router.get("/list",[auth.verifyAdmin], UbicacionController.list);
-router.post("/delete/:id",[auth.verifyAdmin], UbicacionController.delete);
+router.delete("/delete/:id",[auth.verifyAdmin], UbicacionController.delete);
 
 export default router;

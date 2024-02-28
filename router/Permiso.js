@@ -9,6 +9,6 @@ const router = routerx();
 router.post("/register",[auth.verifyAdmin], PermisoController.register);
 router.post("/update",[auth.verifyAdmin], PermisoController.update);
 router.get("/list",[auth.verifyAdmin], PermisoController.list);
-router.post("/delete/:id",[auth.verifyAdmin], PermisoController.delete);
+router.delete("/delete/:id",[auth.verifyAdmin], PermisoController.delete);
 
 export default router;

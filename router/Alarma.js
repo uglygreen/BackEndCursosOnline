@@ -9,6 +9,6 @@ const router = routerx();
 router.post("/register",[], AlarmaController.register);
 router.post("/update",[], AlarmaController.update);
 router.get("/list",[], AlarmaController.list);
-router.post("/delete/:id",[], AlarmaController.delete);
+router.delete("/delete/:id",[], AlarmaController.delete);
 
 export default router;

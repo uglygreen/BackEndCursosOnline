@@ -12,7 +12,7 @@ const router = routerx();
 router.post("/register",[auth.verifyAdmin, path], CategoriaController.register);
 router.post("/update",[auth.verifyAdmin, path], CategoriaController.update);
 router.get("/list",[auth.verifyAdmin], CategoriaController.list);
-router.post("/delete/:id",[auth.verifyAdmin], CategoriaController.delete);
+router.delete("/delete/:id",[auth.verifyAdmin], CategoriaController.delete);
 
 
 router.get("/imagen-categoria/:img", CategoriaController.getImagen);

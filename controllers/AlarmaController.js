@@ -5,7 +5,7 @@ import resource from "../resource";
 export default {
     register: async(req, res) => {
         try {
-
+            // console.log(req.body);
             var existingAlarma  = await models.Alarma.findOne({numero: req.body.numero});
 
             if(existingAlarma ){
@@ -76,8 +76,11 @@ export default {
         }
     },
     delete: async(req, res) => {
+       
         try {
-            var alarma =  await models.Alarma.findByIdAndDelete({_id: req.params["id"]});
+            let _id = req.params["id"];
+            
+            var alarma =  await models.Alarma.findByIdAndDelete({_id: _id});
 
             // Validar si la categoria esta asignada a un curso no se podra eliminar
 
