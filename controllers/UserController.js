@@ -130,8 +130,7 @@ export default {
             const VALID_USER = await models.User.findOne({ email: req.body.email});
 
             if(VALID_USER){
-                res.status(200).json({
-                    message: 403,
+                return res.status(403).json({
                     message_text: "El usuario ya existe"
                 });
 
@@ -139,10 +138,10 @@ export default {
             //ENCRIPTACION DE CONTRASEÑA
             req.body.password = await bycrpt.hash(req.body.password, 10);
 
-            //console.log(req.files, req.files.avatar)
+            console.log(req.files, req.files.avatar)
             if(req.files && req.files.avatar){
                 var img_path = req.files.avatar.path;
-                var name = img_path.split("/");
+                var name = img_path.split("\\");
                 var avatar_name = name[2];
                 req.body.avatar = avatar_name;    
             }
@@ -177,7 +176,7 @@ export default {
             }
             //ENCRIPTACION DE CONTRASEÑA
             
-            // console.log("Files: ",req.files.avatar)
+             console.log("Files: ",req.files.avatar)
             if(req.files && req.files.avatar){
                 var img_path = req.files.avatar.path;
                 var name = img_path.split("\\");
@@ -223,7 +222,7 @@ export default {
             }
             let USERS = await models.User.find({
                 $or : filter,
-                "rol": { $in: ["admin","instructor"]}
+                "rol": { $in: ["admin","operador", "tecnico", "hse", "co&m", "proveedor"]}
             }).sort({'createdAt': -1});
              
                 USERS = USERS.map((user) => {
