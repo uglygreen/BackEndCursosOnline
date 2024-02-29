@@ -17,7 +17,7 @@ export default {
 
             res.status(200).json({
                 message: 'Alarma registrada correctamente',
-                alarma: newUbicacion
+                ubicacion: newUbicacion
             });
 
         } catch (error) {
